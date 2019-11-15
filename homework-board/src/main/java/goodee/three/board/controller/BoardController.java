@@ -25,7 +25,7 @@ public class BoardController {
 		
 		model.addAttribute("board",boardService.getOneBoard(boardNo));
 		return "modifyBoard";
-	}
+	} 
 	// 보드 수정 액션
 	@PostMapping("modifyBoard")
 	public String modifyBoard(Model model, Board board) {

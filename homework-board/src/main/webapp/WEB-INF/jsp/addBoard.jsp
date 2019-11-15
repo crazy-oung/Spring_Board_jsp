@@ -10,21 +10,24 @@
 <body class="container">
 	<h1>add Board</h1>
 	<hr>
-	<form action="/addBoard" method="post">
-		<label for="boardTitle">제목</label>
+	<form action="/addBoard" method="post" enctype="multipart/form-data">
+		<label>제목</label>
 		<input class="form-control" name="boardTitle">
 		<hr>
-		<label for="boardContent">내용</label>
+		<label>내용</label>
 		<input class="form-control" name="boardContent">
 		<hr>
-		<label for="boardUser">이름</label>
+		<label>이름</label>
 		<input class="form-control" name="boardUser">
 		<hr>
-		<label for="boardPw">비번</label>
+		<label>비번</label>
 		<input class="form-control" type="password" name="boardPw">
+		<label>첨부파일</label>
+		<input class="form-control" type="file" name="boardFile">
 		<hr>
 		<button class="btn btn-success" type="submit">입력 완료 </button>
 	</form>
 	<hr>
+	<a class="btn btn-warning" href="/boardList">취소</a>
 </body>
 </html>

@@ -6,13 +6,20 @@
   
 <mapper namespace="goodee.three.board.mapper.BoardMapper">
 	
-	<!-- 패스워드 학인 할 것 -->
+	<!-- 게시글 패스워드 확인 -->
+	<select id="checkPassword" parameterType="goodee.three.board.vo.Board">
+		SELECT COUNT(*)
+		FROM board
+		WHERE board_no = #{boardNo} AND board_pw = #{boardPw}
+	</select>
+	
+	<!-- 삭제 패스워드 학인  -->
 	<delete id="deleteBoard" parameterType="goodee.three.board.vo.Board">
 	DELETE FROM board 
 	WHERE board_no = #{boardNo} AND board_pw = #{boardPw}
 	</delete>
 	
-	<!-- 패스 워드 확인  할 것-->
+	<!-- 업데이트 패스 워드 확인  -->
 	<update id="updateBoard" parameterType="goodee.three.board.vo.Board" >
 	UPDATE board 
 	SET 

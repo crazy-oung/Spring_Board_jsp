@@ -10,4 +10,5 @@ public class Board {
 	private String boardContent;
 	private String boardUser; 
 	private String boardDate;
+	private BoardFile boardFile;
 }

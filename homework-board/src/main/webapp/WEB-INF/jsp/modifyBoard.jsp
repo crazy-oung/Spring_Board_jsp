@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,20 +11,17 @@
 <body class="container">
 	<h1>modify Board</h1>
 	<form action="/modifyBoard" method="post">
-		<label for="boardNo">번호</label>
-		<input class="form-control" name="boardNo" value="${board.boardNo}" readonly>
+		<input class="form-control" name="boardNo" id="boardNo" value="${board.boardNo}" readonly>
+		<hr> 
+		<input class="form-control" name="boardTitle" value="${board.boardTitle}" >
 		<hr>
-		<label for="boardTitle">제목</label>
-		<input class="form-control" name="boardTitle" value="${board.boardTitle}"  >
-		<hr>
-		<label for="boardContent">내용</label>
-		<textarea class="form-control" name="boardContent" value="${board.boardContent}"></textarea>
-		<hr>
-		<label for="boardUser">글쓴이</label>
+		<label>글쓴이: </label>
 		<input class="form-control" name="boardUser" value="${board.boardUser}" readonly>
-		<hr>
-		<label for="boardPw">비밀번호</label>
-		<input class="form-control" name="boardPw" type="password">
+		<hr> 
+		<textarea class="form-control" name="boardContent" value="${board.boardContent}" ></textarea>
+		<hr> 
+		<label>첨부 파일</label>
+		<input class="form-control" type="file" value="/upload/${board.boardFile.fileName}.${board.boardFile.extension}" name="boardFile">
 		<hr>
 		<button class="btn btn-primary" type="submit">글 수정완료</button> 
 	</form>

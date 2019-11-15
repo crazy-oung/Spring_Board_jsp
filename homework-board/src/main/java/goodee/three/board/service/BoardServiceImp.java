@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import goodee.three.board.mapper.BoardFileMapper;
 import goodee.three.board.mapper.BoardMapper;
+import goodee.three.board.mapper.CommentMapper;
 import goodee.three.board.vo.Board;
 import goodee.three.board.vo.Page;
 
@@ -16,7 +18,9 @@ import goodee.three.board.vo.Page;
 @Service
 public class BoardServiceImp implements BoardService{
 	@Autowired private BoardMapper boardMapper;
-	
+	@Autowired private CommentMapper commentMapper;
+	@Autowired private BoardFileMapper boardFileMapper;
+
 	@Override
 	public int addBoard(Board board) {
 		System.out.println("::: addBoard @ BOARD SERVICE :::");
@@ -43,9 +47,17 @@ public class BoardServiceImp implements BoardService{
 		System.out.println("::: removeBoard @ BOARD SERVICE :::");
 		// TODO 
 		System.out.println(board.toString());
-		//ㅠ1.매퍼 삭제 쿼리 실행 
-		int result = boardMapper.deleteBoard(board);
-		return result;
+		//0. 입력한 패스워드가 맞는지 검사
+		if(boardMapper.checkPassword(board) != 0){
+			//1. 삭제 쿼리 실행 
+			commentMapper.deleteAllComments(board);
+			boardFileMapper.deleteBoardFile(board);
+			boardMapper.deleteBoard(board);
+			return 1;
+		}
+		
+		System.out.println("삭제 하지 못함. 비밀번호가 틀림");
+		return 0;
 	}
 
 

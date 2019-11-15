@@ -1,5 +1,10 @@
 package goodee.three.board.service;
 
-public interface MemberServiceImp {
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional
+@Service
+public class MemberServiceImp implements MemberService{
+	
 }

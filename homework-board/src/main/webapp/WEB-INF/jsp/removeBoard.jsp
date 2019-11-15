@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,23 +12,26 @@
 <body class="container">
 	<h1>remove Board</h1>
 	<form action="/removeBoard" method="post">
-		<label for="boardNo">번호</label>
-		<input class="form-control" name="boardNo" value="${board.boardNo}" readonly>
+		<input class="form-control" name="boardNo" id="boardNo" value="${board.boardNo}" readonly>
+		<hr> 
+		<input class="form-control" name="boardTitle" value="${board.boardTitle}" readonly>
 		<hr>
-		<label for="boardTitle">제목</label>
-		<input class="form-control" name="boardTitle" value="${board.boardTitle}" readonly >
-		<hr>
-		<label for="boardContent">내용</label>
+		<label>글쓴이: </label>
+		<input class="form-control" name="boardUser" value="${board.boardUser}" readonly>
+		<hr> 
 		<textarea class="form-control" name="boardContent" value="${board.boardContent}" readonly></textarea>
 		<hr>
-		<label for="boardUser">글쓴이</label>
-		<input class="form-control" name="boardUser" value="${board.boardUser}" readonly>
-		<hr>
+		<c:if test="${board.boardFile != null }">
+			<label>첨부 파일</label>
+			<a href="/upload/${board.boardFile.fileName}.${board.boardFile.extension}">
+				${board.boardFile.originName}
+			</a>
+		</c:if>
 		<label for="boardPw">비밀번호 확인 **</label>
 		<input class="form-control" name="boardPw" type="password">
 		<hr>
 		<button class="btn btn-danger" type="submit">글 삭제완료</button> 
-		<a class="btn btn-primary" href="/">돌아가기</a> 
+		<a class="btn btn-warning" href="/">취소</a> 
 	</form>
 </body>
 </html>
