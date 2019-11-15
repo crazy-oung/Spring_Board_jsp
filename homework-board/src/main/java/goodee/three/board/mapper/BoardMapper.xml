@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="goodee.three.board.mapper.BoardMapper">
+	
+	<!-- 패스워드 학인 할 것 -->
+	<delete id="deleteBoard" parameterType="goodee.three.board.vo.Board">
+	DELETE FROM board 
+	WHERE board_no = #{boardNo} AND board_pw = #{boardPw}
+	</delete>
+	
+	<!-- 패스 워드 확인  할 것-->
+	<update id="updateBoard" parameterType="goodee.three.board.vo.Board" >
+	UPDATE board 
+	SET 
+		board_title = #{boardTitle}, 
+		board_content = #{boardContent} 
+	WHERE board_no = #{boardNo} AND board_pw = #{boardPw}
+	</update>
+
+	<insert id="insertBoard" parameterType="goodee.three.board.vo.Board">
+		INSERT INTO board(
+			board_pw, 
+			board_title, 
+			board_content, 
+			board_user, 
+			board_date
+		) VALUES(
+			#{boardPw}, 
+			#{boardTitle}, 
+			#{boardContent}, 
+			#{boardUser}, 			
+			NOW() 			
+		)
+	</insert>
+	
+	<select id="selectBoardList" parameterType="goodee.three.board.vo.Page" resultType="goodee.three.board.vo.Board">
+	SELECT
+		board_no as boardNo,
+		board_title as boardTitle, 
+		board_content as boardContent,
+		board_user as boardUser,
+		board_date as boardDate
+	FROM board 
+	<where>
+		<if	test = "searchWord != null">
+			board_title LIKE CONCAT("%",#{searchWord},"%")
+		</if>
+	</where>
+	ORDER BY board_date desc
+	LIMIT #{beginRow},#{rowPerPage}
+	</select>
+	
+	<select id="selectBoardCount" parameterType="goodee.three.board.vo.Board" resultType="int">
+		SELECT COUNT(*) 
+		FROM board
+		<where>
+			<if test="searchWord != null">
+				board_title LIKE CONCAT("%",#{searchWord},"%")
+			</if>
+		</where>
+	</select>
+	
+	<select id="selectOneBoard" parameterType="int" resultType="goodee.three.board.vo.Board">
+		SELECT
+		board_no as boardNo,
+		board_title as boardTitle, 
+		board_content as boardContent,
+		board_user as boardUser,
+		board_date as boardDate
+	FROM board 
+	WHERE board_no = ${board_no}
+	</select>
+	
+	
+</mapper>
