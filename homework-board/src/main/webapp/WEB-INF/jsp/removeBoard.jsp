@@ -10,16 +10,21 @@
 <title>Insert title here</title>
 </head>
 <body class="container">
+	<a href="/logout">로그아웃</a>
+	<a href="/removeMember">탈퇴하기</a>
 	<h1>remove Board</h1>
 	<form action="/removeBoard" method="post">
+		<b>글번호</b>
 		<input class="form-control" name="boardNo" id="boardNo" value="${board.boardNo}" readonly>
 		<hr> 
+		<b>글제목</b>
 		<input class="form-control" name="boardTitle" value="${board.boardTitle}" readonly>
 		<hr>
-		<label>글쓴이: </label>
+		<b>글쓴이</b>
 		<input class="form-control" name="boardUser" value="${board.boardUser}" readonly>
 		<hr> 
-		<textarea class="form-control" name="boardContent" value="${board.boardContent}" readonly></textarea>
+		<b>글내용</b>
+		<textarea class="form-control" name="boardContent" readonly>${board.boardContent}</textarea>
 		<hr>
 		<c:if test="${board.boardFile != null }">
 			<label>첨부 파일</label>
@@ -27,10 +32,10 @@
 				${board.boardFile.originName}
 			</a>
 		</c:if>
-		<label for="boardPw">비밀번호 확인 **</label>
+		<b>비밀번호 확인 **</b>
 		<input class="form-control" name="boardPw" type="password">
 		<hr>
-		<button class="btn btn-danger" type="submit">글 삭제완료</button> 
+		<button class="btn btn-danger" type="submit">글 삭제하기</button> 
 		<a class="btn btn-warning" href="/">취소</a> 
 	</form>
 </body>

@@ -7,6 +7,6 @@ import goodee.three.board.vo.Comment;
 
 public interface CommentService {
 
-	List<Comment> getCommentList(int boardNo);
-
+	public List<Comment> getCommentList(int boardNo);
+	public int addComment(Comment comment);
 }

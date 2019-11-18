@@ -10,5 +10,5 @@ public interface BoardService {	// 보드 서비스 인터페이스를 상속 �
 	public int modifyBoard(Board board);
 	public int removeBoard(Board board);
 	public Map<String,Object> getBoardList(int currentPage, String searchWord, int rowPerPage);
-	public Board getOneBoard(int boardNo);
+	public Board getOneBoard(int boardNo); 
 }

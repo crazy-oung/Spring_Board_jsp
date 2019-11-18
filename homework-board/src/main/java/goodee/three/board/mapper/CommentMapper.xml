@@ -5,6 +5,20 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="goodee.three.board.mapper.CommentMapper">
+
+	<insert id="insertComment" parameterType="goodee.three.board.vo.Comment">
+		INSERT INTO comment(
+			comment_user,
+			comment_pw,
+			comment_content,
+			board_no
+		)VALUES(
+			#{commentUser},
+			#{commentPw},
+			#{commentContent},
+			#{boardNo}
+		)
+	</insert>
 	
 	<delete id="deleteAllComments" parameterType="goodee.three.board.vo.Board">
 		DELETE FROM comment
@@ -17,10 +31,12 @@
 	</delete>
 	
 	<select id="selectComments" parameterType="int" resultType="goodee.three.board.vo.Comment">
-		SELECT 
+		SELECT
+			comment_no as commentNo,
 			comment_content as commentContent,
-			comment_user as commentUser,
+			comment_user as commentUser
 		FROM comment
 		WHERE board_no = #{boardNo}
+		ORDER BY comment_no desc
 	</select>
 </mapper>

@@ -23,8 +23,7 @@ public class BoardServiceImp implements BoardService{
 
 	@Override
 	public int addBoard(Board board) {
-		System.out.println("::: addBoard @ BOARD SERVICE :::");
-		// TODO 
+		System.out.println("::: addBoard @ BOARD SERVICE :::"); 
 		// 보드 값 확인 입력 값 전달하기.
 		System.out.println(board.toString());
 		int result = boardMapper.insertBoard(board);
@@ -34,8 +33,7 @@ public class BoardServiceImp implements BoardService{
 
 	@Override
 	public int modifyBoard(Board board) {
-		System.out.println("::: modifyBoard @ BOARD SERVICE :::");
-		// TODO 
+		System.out.println("::: modifyBoard @ BOARD SERVICE :::"); 
 		// 매퍼로 쿼리 실행하기..
 		System.out.println(board.toString());
 		int result = boardMapper.updateBoard(board);
@@ -44,15 +42,16 @@ public class BoardServiceImp implements BoardService{
 
 	@Override
 	public int removeBoard(Board board) {
-		System.out.println("::: removeBoard @ BOARD SERVICE :::");
-		// TODO 
+		System.out.println("::: removeBoard @ BOARD SERVICE :::"); 
 		System.out.println(board.toString());
-		//0. 입력한 패스워드가 맞는지 검사
+		
+		//1. 입력한 패스워드 검사
 		if(boardMapper.checkPassword(board) != 0){
-			//1. 삭제 쿼리 실행 
+			//2. 삭제 쿼리 실행 
 			commentMapper.deleteAllComments(board);
 			boardFileMapper.deleteBoardFile(board);
 			boardMapper.deleteBoard(board);
+			
 			return 1;
 		}
 		

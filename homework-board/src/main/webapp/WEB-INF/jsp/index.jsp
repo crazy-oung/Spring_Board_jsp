@@ -8,6 +8,8 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body class="container">
+	<a href="/logout">로그아웃</a>
+	<a href="/removeMember">탈퇴하기</a>
 	<h1>Spring Board Project</h1>
 	<hr>
 	페이지 리스트

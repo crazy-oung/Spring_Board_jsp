@@ -19,6 +19,7 @@ public interface BoardMapper{
 	public List<Board> selectBoardList(Page page);
 	
 	public int selectBoardCount(String searchWord);
+	
 	public int checkPassword(Board board);
 	
 }
