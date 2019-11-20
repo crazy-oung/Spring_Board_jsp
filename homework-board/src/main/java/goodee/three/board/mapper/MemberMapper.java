@@ -8,4 +8,5 @@ import goodee.three.board.vo.Member;
 @Mapper
 public interface MemberMapper {
 	public Member selectOneMember(LoginForm loginForm);
+	public int insertMember(Member member);
 }

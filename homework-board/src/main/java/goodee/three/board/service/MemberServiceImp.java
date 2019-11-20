@@ -18,5 +18,14 @@ public class MemberServiceImp implements MemberService{
 		System.out.println("getOneMemberInfo @ MemberServiceImp");
 		return memberMapper.selectOneMember(loginForm);
 	}
+
+	@Override
+	public int addMember(Member member) { 
+		System.out.println(": addMemeber SERIVCE 진입");
+		
+		int rs = memberMapper.insertMember(member);
+		System.out.println(": addMemeber SERIVCE 리턴 ->");		
+		return rs;
+	}
 	
 }

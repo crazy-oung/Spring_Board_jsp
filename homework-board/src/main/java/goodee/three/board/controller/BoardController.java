@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import goodee.three.board.service.BoardService;
-import goodee.three.board.vo.Board; 
+import goodee.three.board.vo.Board;
+import goodee.three.board.vo.Member; 
 
 @Controller
 public class BoardController {

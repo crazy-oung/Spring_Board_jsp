@@ -15,6 +15,8 @@ public class IndexController {
 			System.out.println("Back to login");
 			return "login";
 		}
+		
+		System.out.println(session.getAttribute("loginMember"));
 		return "index";
 	}
 }

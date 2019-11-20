@@ -5,4 +5,5 @@ import goodee.three.board.vo.Member;
 
 public interface MemberService {
 	public Member getOneMemberInfo(LoginForm loginForm);
+	public int addMember(Member member);
 }
