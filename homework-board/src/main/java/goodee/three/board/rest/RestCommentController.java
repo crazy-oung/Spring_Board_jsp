@@ -2,6 +2,8 @@ package goodee.three.board.rest;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,9 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 import goodee.three.board.service.CommentService;
 import goodee.three.board.vo.Board;
 import goodee.three.board.vo.Comment;
+import goodee.three.board.vo.Member;
 
 @RestController 
-public class CommentController {
+public class RestCommentController {
 	@Autowired private CommentService commentService;
 	
 	@GetMapping("/rest/getCommentList")
@@ -30,4 +33,5 @@ public class CommentController {
 		
 		return commentService.addComment(comment);
 	}
+	 
 }

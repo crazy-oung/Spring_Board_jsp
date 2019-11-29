@@ -21,10 +21,10 @@ public class MemberServiceImp implements MemberService{
 
 	@Override
 	public int addMember(Member member) { 
-		System.out.println(": addMemeber SERIVCE 진입");
+		System.out.println("-> addMemeber SERIVCE 진입");
 		
 		int rs = memberMapper.insertMember(member);
-		System.out.println(": addMemeber SERIVCE 리턴 ->");		
+		System.out.println(" addMemeber SERIVCE 리턴 ->");		
 		return rs;
 	}
 	

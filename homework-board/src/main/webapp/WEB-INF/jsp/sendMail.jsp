@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,28 +8,28 @@
 <title>Login</title>
 </head>
 <body class="container"> 
-	<div class="card shadow-lg p-5 m-5">
-		<h1 class="font-weight-bold text-center">¸ÞÀÏ Àü¼Û</h1>
+	<div class="card shadow-lg p-5 mx-5">
+		<h1 class="font-weight-bold text-center">ë©”ì¼ ì „ì†¡</h1>
 		<form action="/sendMail" method="post" class="was-validated card-body">
 		  <div class="form-group">
-		    <label for="to">¹Þ´ÂÀÌ</label>
-		    <input type="text" class="form-control" id="to" placeholder="¹Þ´Â»ç¶÷" name="to" required>
-		    <div class="valid-feedback">ÁÁ¾Æ¿ä.</div>
-		    <div class="invalid-feedback">¹Þ´Â»ç¶÷ ÀÌ¸ÞÀÏ ÁÖ¼Ò¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.</div>
+		    <label for="to">ë°›ëŠ”ì´</label>
+		    <input type="text" class="form-control" id="to" placeholder="ë°›ëŠ”ì‚¬ëžŒ" name="to" required>
+		    <div class="valid-feedback">ì¢‹ì•„ìš”.</div>
+		    <div class="invalid-feedback">ë°›ëŠ”ì‚¬ëžŒ ì´ë©”ì¼ ì£¼ì†Œë¥¼ ìž…ë ¥í•´ì£¼ì„¸ìš”.</div>
 		  </div>
 		  <div class="form-group">
-		    <label for="subject">Á¦¸ñ</label>
-		    <input type="text" class="form-control" id="subject" placeholder="Á¦¸ñ" name="subject" required>
-		    <div class="valid-feedback">ÁÁ¾Æ¿ä.</div>
-		    <div class="invalid-feedback">Á¦¸ñ ÀÔ·ÂÇØÁÖ¼¼¿ä.</div>
+		    <label for="subject">ì œëª©</label>
+		    <input type="text" class="form-control" id="subject" placeholder="ì œëª©" name="subject" required>
+		    <div class="valid-feedback">ì¢‹ì•„ìš”.</div>
+		    <div class="invalid-feedback">ì œëª© ìž…ë ¥í•´ì£¼ì„¸ìš”.</div>
 		  </div>
 		  <div class="form-group">
-		    <label for="content">³»¿ë</label>
-		    <textarea class="form-control" id="content" placeholder="³»¿ë" rows="20" name="content" required></textarea>
-		    <div class="valid-feedback">ÁÁ¾Æ¿ä.</div>
-		    <div class="invalid-feedback">³»¿ëÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.</div>
+		    <label for="content">ë‚´ìš©</label>
+		    <textarea class="form-control" id="content" placeholder="ë‚´ìš©" rows="20" name="content" required></textarea>
+		    <div class="valid-feedback">ì¢‹ì•„ìš”.</div>
+		    <div class="invalid-feedback">ë‚´ìš©ì„ ìž…ë ¥í•´ì£¼ì„¸ìš”.</div>
 		  </div> 
-		  <button type="submit" class="btn btn-lg btn-outline-success btn-block">Àü¼Û</button>
+		  <button type="submit" class="btn btn-lg btn-outline-success btn-block">ì „ì†¡</button>
 		</form> 
 	</div>
 </body>

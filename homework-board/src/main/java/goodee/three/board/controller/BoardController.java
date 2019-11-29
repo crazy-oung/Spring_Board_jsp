@@ -115,7 +115,7 @@ public class BoardController {
 	}
 	
 	// 보드 리스트 접근& 액션(검색)
-	@RequestMapping({"/","boardList"})
+	@RequestMapping("boardList")
 	public String getBoardList(	HttpSession session, Model model, 
 								@RequestParam(value="currentPage", defaultValue="1") int currentPage,
 								@RequestParam(value="searchWord", required = false) String searchWord
